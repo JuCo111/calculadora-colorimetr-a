@@ -4,11 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Colorimetría</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .calculadora {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label, select, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .resultado {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
     <h1>Calculadora de Colorimetría</h1>
-    <div id="app"></div>
-    <script src="script.js"></script>
+    <div class="calculadora">
+        <label for="altura">Altura de Tono:</label>
+        <select id="altura">
+            <option value="negro">Negro</option>
+            <option value="castaño oscuro">Castaño Oscuro</option>
+            <option value="castaño claro">Castaño Claro</option>
+            <option value="rubio oscuro">Rubio Oscuro</option>
+            <option value="rubio medio">Rubio Medio</option>
+            <option value="rubio claro">Rubio Claro</option>
+            <option value="rubio muy claro">Rubio Muy Claro</option>
+        </select>
+
+        <label for="reflejo">Reflejo Deseado:</label>
+        <input type="text" id="reflejo" placeholder="Ejemplo: Ceniza, Dorado, Cobrizo">
+
+        <button onclick="calcular()">Calcular Fórmula</button>
+
+        <div class="resultado" id="resultado"></div>
+    </div>
+
+    <script>
+        function calcular() {
+            const altura = document.getElementById('altura').value;
+            const reflejo = document.getElementById('reflejo').value;
+
+            if (reflejo.trim() === "") {
+                document.getElementById('resultado').innerText = "Por favor, ingresa un reflejo deseado.";
+                return;
+            }
+
+            document.getElementById('resultado').innerText = 
+                "Para un tono " + altura + " con reflejo " + reflejo.toLowerCase() + ", se recomienda usar una base compatible y matizar según necesidad.";
+        }
+    </script>
 </body>
 </html>
