@@ -5,6 +5,13 @@
        url('fonts/brittany.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('fonts/Raleway-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
