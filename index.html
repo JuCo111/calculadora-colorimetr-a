@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Colorimetría Personal</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Brittany font debe ser importada localmente ya que no está en Google Fonts -->
+    <link href="https://fonts.cdnfonts.com/css/gill-sans" rel="stylesheet">
+</head>
+<body>
+    <!-- Selector de idioma -->
+    <div class="language-selector">
+        <button id="es-btn" class="language-btn active">ES</button>
+        <button id="en-btn" class="language-btn">EN</button>
+    </div>
+
+    <!-- Página de inicio -->
+    <section id="home-page" class="page active">
+        <div class="banner-container">
+            <!-- Aquí va el banner principal -->
+            <img src="imagenes/banner-revolucion-espejo.jpg" alt="Banner Revolución en tu Espejo" class="main-banner">
+            <div class="overlay-content">
+                <h1 class="main-title">Calculadora de Colorimetría Personal</h1>
+                <button id="start-btn" class="primary-btn">Iniciar tu Análisis de Color</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor principal de la calculadora -->
+    <div id="calculator-container" class="hidden">
+        <!-- Barra de progreso -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="step-indicators">
+                <div class="step active">1</div>
+                <div class="step">2</div>
+                <div class="step">3</div>
+                <div class="step">4</div>
+            </div>
+        </div>
+
+        <!-- Sección de piel (Paso 1) -->
+        <section id="skin-section" class="calculator-section active">
+            <h2 class="section-title">Paso 1: Análisis de tu Piel</h2>
+            
+            <!-- Temperatura -->
+            <div class="question-container">
+                <h3 class="question-title">Temperatura de tu piel</h3>
+                <div class="help-text">
+                    <p>Observa el interior de tu muñeca bajo luz natural:</p>
+                    <ul>
+                        <li><strong>Cálida (1):</strong> Tonos amarillentos, dorados o melocotón. Venas verdes.</li>
+                        <li><strong>Neutra (2):</strong> Mezcla de tonos cálidos y fríos. Venas azules y verdes.</li>
+                        <li><strong>Fría (3):</strong> Tonos rosados, rojizos o azulados. Venas azules o moradas.</li>
+                    </ul>
+                </div>
+                <div class="image-examples">
+                    <div class="example">
+                        <img src="imagenes/piel-calida.jpg" alt="Piel cálida">
+                        <p>Cálida (1)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/piel-neutra.jpg" alt="Piel neutra">
+                        <p>Neutra (2)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/piel-fria.jpg" alt="Piel fría">
+                        <p>Fría (3)</p>
+                    </div>
+                </div>
+                <div class="options">
+                    <button class="option-btn" data-value="1" data-category="skin" data-attribute="temperature">Cálida</button>
+                    <button class="option-btn" data-value="2" data-category="skin" data-attribute="temperature">Neutra</button>
+                    <button class="option-btn" data-value="3" data-category="skin" data-attribute="temperature">Fría</button>
+                </div>
+            </div>
+
+            <!-- Valor -->
+            <div class="question-container">
+                <h3 class="question-title">Valor de tu piel</h3>
+                <div class="help-text">
+                    <p>Evalúa qué tan clara u oscura es tu piel:</p>
+                    <ul>
+                        <li><strong>Clara (1):</strong> Piel muy pálida, se quema fácilmente.</li>
+                        <li><strong>Media (2):</strong> Piel de tono medio, puede broncearse moderadamente.</li>
+                        <li><strong>Oscura (3):</strong> Piel más oscura, se broncea fácilmente.</li>
+                    </ul>
+                </div>
+                <div class="image-examples">
+                    <div class="example">
+                        <img src="imagenes/piel-clara.jpg" alt="Piel clara">
+                        <p>Clara (1)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/piel-media.jpg" alt="Piel media">
+                        <p>Media (2)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/piel-oscura.jpg" alt="Piel oscura">
+                        <p>Oscura (3)</p>
+                    </div>
+                </div>
+                <div class="options">
+                    <button class="option-btn" data-value="1" data-category="skin" data-attribute="value">Clara</button>
+                    <button class="option-btn" data-value="2" data-category="skin" data-attribute="value">Media</button>
+                    <button class="option-btn" data-value="3" data-category="skin" data-attribute="value">Oscura</button>
+                </div>
+            </div>
+
+            <!-- Croma -->
+            <div class="question-container">
+                <h3 class="question-title">Croma de tu piel</h3>
+                <div class="help-text">
+                    <p>Observa la intensidad o pureza del color de tu piel:</p>
+                    <ul>
+                        <li><strong>Suave (1):</strong> Tono apagado, grisáceo o azulado.</li>
+                        <li><strong>Medio (2):</strong> Equilibrio entre suave y brillante.</li>
+                        <li><strong>Brillante (3):</strong> Color vibrante, claro y definido.</li>
+                    </ul>
+                </div>
+                <div class="image-examples">
+                    <div class="example">
+                        <img src="imagenes/piel-suave.jpg" alt="Piel suave">
+                        <p>Suave (1)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/piel-media-croma.jpg" alt="Piel media croma">
+                        <p>Media (2)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/piel-brillante.jpg" alt="Piel brillante">
+                        <p>Brillante (3)</p>
+                    </div>
+                </div>
+                <div class="options">
+                    <button class="option-btn" data-value="1" data-category="skin" data-attribute="chroma">Suave</button>
+                    <button class="option-btn" data-value="2" data-category="skin" data-attribute="chroma">Medio</button>
+                    <button class="option-btn" data-value="3" data-category="skin" data-attribute="chroma">Brillante</button>
+                </div>
+            </div>
+
+            <button id="next-to-hair" class="next-btn">Siguiente</button>
+        </section>
+
+        <!-- Sección de cabello (Paso 2) -->
+        <section id="hair-section" class="calculator-section">
+            <h2 class="section-title">Paso 2: Análisis de tu Cabello</h2>
+            
+            <!-- Temperatura -->
+            <div class="question-container">
+                <h3 class="question-title">Temperatura de tu cabello</h3>
+                <div class="help-text">
+                    <p>Observa el tono base de tu cabello (color natural):</p>
+                    <ul>
+                        <li><strong>Cálido (1):</strong> Reflejos dorados, cobrizos, rojizos o anaranjados.</li>
+                        <li><strong>Neutro (2):</strong> Mezcla equilibrada de tonos cálidos y fríos.</li>
+                        <li><strong>Frío (3):</strong> Reflejos ceniza, plateados o azulados, sin rojizos.</li>
+                    </ul>
+                </div>
+                <div class="image-examples">
+                    <div class="example">
+                        <img src="imagenes/cabello-calido.jpg" alt="Cabello cálido">
+                        <p>Cálido (1)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/cabello-neutro.jpg" alt="Cabello neutro">
+                        <p>Neutro (2)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/cabello-frio.jpg" alt="Cabello frío">
+                        <p>Frío (3)</p>
+                    </div>
+                </div>
+                <div class="options">
+                    <button class="option-btn" data-value="1" data-category="hair" data-attribute="temperature">Cálido</button>
+                    <button class="option-btn" data-value="2" data-category="hair" data-attribute="temperature">Neutro</button>
+                    <button class="option-btn" data-value="3" data-category="hair" data-attribute="temperature">Frío</button>
+                </div>
+            </div>
+
+            <!-- Valor -->
+            <div class="question-container">
+                <h3 class="question-title">Valor de tu cabello</h3>
+                <div class="help-text">
+                    <p>Evalúa qué tan claro u oscuro es tu cabello:</p>
+                    <ul>
+                        <li><strong>Claro (1):</strong> Rubio claro, platino, rubio ceniza.</li>
+                        <li><strong>Medio (2):</strong> Castaño claro, rubio oscuro, castaño medio.</li>
+                        <li><strong>Oscuro (3):</strong> Castaño oscuro, negro.</li>
+                    </ul>
+                </div>
+                <div class="image-examples">
+                    <div class="example">
+                        <img src="imagenes/cabello-claro.jpg" alt="Cabello claro">
+                        <p>Claro (1)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/cabello-medio.jpg" alt="Cabello medio">
+                        <p>Medio (2)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/cabello-oscuro.jpg" alt="Cabello oscuro">
+                        <p>Oscuro (3)</p>
+                    </div>
+                </div>
+                <div class="options">
+                    <button class="option-btn" data-value="1" data-category="hair" data-attribute="value">Claro</button>
+                    <button class="option-btn" data-value="2" data-category="hair" data-attribute="value">Medio</button>
+                    <button class="option-btn" data-value="3" data-category="hair" data-attribute="value">Oscuro</button>
+                </div>
+            </div>
+
+            <!-- Croma -->
+            <div class="question-container">
+                <h3 class="question-title">Croma de tu cabello</h3>
+                <div class="help-text">
+                    <p>Observa la intensidad o pureza del color de tu cabello:</p>
+                    <ul>
+                        <li><strong>Suave (1):</strong> Color apagado, grisáceo o mezclado con ash.</li>
+                        <li><strong>Medio (2):</strong> Equilibrio entre suave y brillante.</li>
+                        <li><strong>Brillante (3):</strong> Color vibrante, intenso y definido.</li>
+                    </ul>
+                </div>
+                <div class="image-examples">
+                    <div class="example">
+                        <img src="imagenes/cabello-suave.jpg" alt="Cabello suave">
+                        <p>Suave (1)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/cabello-medio-croma.jpg" alt="Cabello medio croma">
+                        <p>Medio (2)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/cabello-brillante.jpg" alt="Cabello brillante">
+                        <p>Brillante (3)</p>
+                    </div>
+                </div>
+                <div class="options">
+                    <button class="option-btn" data-value="1" data-category="hair" data-attribute="chroma">Suave</button>
+                    <button class="option-btn" data-value="2" data-category="hair" data-attribute="chroma">Medio</button>
+                    <button class="option-btn" data-value="3" data-category="hair" data-attribute="chroma">Brillante</button>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button id="back-to-skin" class="back-btn">Anterior</button>
+                <button id="next-to-eyes" class="next-btn">Siguiente</button>
+            </div>
+        </section>
+
+        <!-- Sección de ojos (Paso 3) -->
+        <section id="eyes-section" class="calculator-section">
+            <h2 class="section-title">Paso 3: Análisis de tus Ojos</h2>
+            
+            <!-- Temperatura -->
+            <div class="question-container">
+                <h3 class="question-title">Temperatura de tus ojos</h3>
+                <div class="help-text">
+                    <p>Observa el color predominante de tus ojos:</p>
+                    <ul>
+                        <li><strong>Cálido (1):</strong> Tonos ámbar, miel, avellana, verde oliva o marrón cálido.</li>
+                        <li><strong>Neutro (2):</strong> Mezcla de tonos cálidos y fríos.</li>
+                        <li><strong>Frío (3):</strong> Azul, gris, verde azulado o marrón frío.</li>
+                    </ul>
+                </div>
+                <div class="image-examples">
+                    <div class="example">
+                        <img src="imagenes/ojos-calidos.jpg" alt="Ojos cálidos">
+                        <p>Cálidos (1)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/ojos-neutros.jpg" alt="Ojos neutros">
+                        <p>Neutros (2)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/ojos-frios.jpg" alt="Ojos fríos">
+                        <p>Fríos (3)</p>
+                    </div>
+                </div>
+                <div class="options">
+                    <button class="option-btn" data-value="1" data-category="eyes" data-attribute="temperature">Cálido</button>
+                    <button class="option-btn" data-value="2" data-category="eyes" data-attribute="temperature">Neutro</button>
+                    <button class="option-btn" data-value="3" data-category="eyes" data-attribute="temperature">Frío</button>
+                </div>
+            </div>
+
+            <!-- Valor -->
+            <div class="question-container">
+                <h3 class="question-title">Valor de tus ojos</h3>
+                <div class="help-text">
+                    <p>Evalúa qué tan claros u oscuros son tus ojos:</p>
+                    <ul>
+                        <li><strong>Claro (1):</strong> Azul claro, verde claro, gris claro.</li>
+                        <li><strong>Medio (2):</strong> Verde, azul medio, avellana.</li>
+                        <li><strong>Oscuro (3):</strong> Marrón oscuro, negro, azul muy oscuro.</li>
+                    </ul>
+                </div>
+                <div class="image-examples">
+                    <div class="example">
+                        <img src="imagenes/ojos-claros.jpg" alt="Ojos claros">
+                        <p>Claros (1)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/ojos-medios.jpg" alt="Ojos medios">
+                        <p>Medios (2)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/ojos-oscuros.jpg" alt="Ojos oscuros">
+                        <p>Oscuros (3)</p>
+                    </div>
+                </div>
+                <div class="options">
+                    <button class="option-btn" data-value="1" data-category="eyes" data-attribute="value">Claro</button>
+                    <button class="option-btn" data-value="2" data-category="eyes" data-attribute="value">Medio</button>
+                    <button class="option-btn" data-value="3" data-category="eyes" data-attribute="value">Oscuro</button>
+                </div>
+            </div>
+
+            <!-- Croma -->
+            <div class="question-container">
+                <h3 class="question-title">Croma de tus ojos</h3>
+                <div class="help-text">
+                    <p>Observa la intensidad o pureza del color de tus ojos:</p>
+                    <ul>
+                        <li><strong>Suave (1):</strong> Color apagado, nebuloso o grisáceo.</li>
+                        <li><strong>Medio (2):</strong> Equilibrio entre suave y brillante.</li>
+                        <li><strong>Brillante (3):</strong> Color vibrante, claro y definido.</li>
+                    </ul>
+                </div>
+                <div class="image-examples">
+                    <div class="example">
+                        <img src="imagenes/ojos-suaves.jpg" alt="Ojos suaves">
+                        <p>Suaves (1)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/ojos-medios-croma.jpg" alt="Ojos medios croma">
+                        <p>Medios (2)</p>
+                    </div>
+                    <div class="example">
+                        <img src="imagenes/ojos-brillantes.jpg" alt="Ojos brillantes">
+                        <p>Brillantes (3)</p>
+                    </div>
+                </div>
+                <div class="options">
+                    <button class="option-btn" data-value="1" data-category="eyes" data-attribute="chroma">Suave</button>
+                    <button class="option-btn" data-value="2" data-category="eyes" data-attribute="chroma">Medio</button>
+                    <button class="option-btn" data-value="3" data-category="eyes" data-attribute="chroma">Brillante</button>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button id="back-to-hair" class="back-btn">Anterior</button>
+                <button id="calculate-result" class="next-btn">Calcular mi Resultado</button>
+            </div>
+        </section>
+
+        <!-- Sección de resultados (Paso 4) -->
+        <section id="result-section" class="calculator-section">
+            <h2 class="section-title">Tu Resultado de Colorimetría Personal</h2>
+            
+            <div class="result-container">
+                <div class="season-result">
+                    <h3 id="season-title">Tu estación es: <span id="season-name">-</span></h3>
+                    <div class="season-image">
+                        <img id="season-palette" src="" alt="Paleta de colores">
+                    </div>
+                </div>
+                
+                <div class="recommendations">
+                    <h3>Recomendaciones para tu estación</h3>
+                    <div id="season-description"></div>
+                </div>
+                
+                <div class="season-details">
+                    <h3>Detalles de tu análisis</h3>
+                    <div class="analysis-summary">
+                        <div class="summary-item">
+                            <strong>Piel:</strong>
+                            <span id="skin-temp-result"></span>,
+                            <span id="skin-value-result"></span>,
+                            <span id="skin-chroma-result"></span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>Cabello:</strong>
+                            <span id="hair-temp-result"></span>,
+                            <span id="hair-value-result"></span>,
+                            <span id="hair-chroma-result"></span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>Ojos:</strong>
+                            <span id="eyes-temp-result"></span>,
+                            <span id="eyes-value-result"></span>,
+                            <span id="eyes-chroma-result"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button id="back-to-eyes" class="back-btn">Anterior</button>
+                <button id="restart-analysis" class="primary-btn">Comenzar Nuevo Análisis</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Calculadora de Colorimetría Personal</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
