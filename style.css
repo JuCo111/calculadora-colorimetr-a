@@ -1,13 +1,13 @@
-/* Fuentes */
+
 @font-face {
   font-family: 'Brittany';
-  src: url('fonts/BrittanySignature.ttf') format('truetype');
+  src: url('BrittanySignature.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Raleway';
-  src: url('fonts/Raleway-Regular.ttf') format('truetype');
+  src: url('Raleway-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
