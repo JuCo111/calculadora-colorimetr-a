@@ -119,7 +119,7 @@ img {
 }
 
 .banner-content {
-  position: relative;
+  position: under;
   z-index: 2;
   color: var(--color-background);
 }
@@ -130,7 +130,7 @@ img {
   color: white;
   border: none;
   border-radius: 50px;
-  font-size: 1.1rem;
+  font-size: 3.1rem;
   font-weight: 600;
   letter-spacing: 1px;
   margin-top: 30px;
