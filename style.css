@@ -103,6 +103,9 @@ img {
   text-align: center;
   padding: 20px;
 }
+.home-banner {
+  background-color: pink !important;
+}
 
 .home-banner::before {
   content: '';
