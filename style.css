@@ -1,0 +1,85 @@
+/* Tipografías Personalizadas */
+@font-face {
+  font-family: 'Brittany';
+  src: url('fonts/BrittanySignature.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('fonts/Raleway-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Variables de colores */
+:root {
+  --color-primary: #d0b1a3;
+  --color-secondary: #fcf6f0;
+  --color-tertiary: #dac8b9;
+  --color-text: #333333;
+  --color-light-text: #666666;
+  --color-background: #ffffff;
+  --color-border: #eaeaea;
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Reseteo y estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-secondary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Brittany', serif;
+  margin-bottom: 20px;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Aquí seguiría el resto del CSS: */
+/* Estilos del banner */
+/* Estilos del botón inicio */
+/* Estilos de la calculadora */
+/* Estilos de resultados */
+/* Estilos responsivos */
+/* Animaciones */
+
