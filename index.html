@@ -1,329 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Colorimetría</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Las fuentes se cargarán desde la carpeta local fonts/ mediante @font-face en el CSS -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadora de Colorimetría</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-    <body>
-        
-    <div class="language-selector">
-        <button id="es-btn" class="active">ES</button>
-        <button id="en-btn">EN</button>
-    </div>
 
-    <div class="container">
-        <!-- Página de inicio -->
-        <section id="inicio" class="step active">
-            <div class="banner-container">
-                <img src="images/banner-revolucion-espejo.jpg" alt="Banner Revolución Espejo" class="banner">
-            </div>
-            <h1 class="brittany-font">Calculadora de Colorimetría</h1>
-            <p class="subtitle" data-es="Descubre tu paleta de colores ideal" data-en="Discover your ideal color palette"></p>
-            <p class="description" data-es="Esta herramienta te ayudará a identificar tu estación colorimétrica y te ofrecerá consejos personalizados para mejorar tu imagen personal." data-en="This tool will help you identify your colorimetric season and offer personalized advice to improve your personal image."></p>
-            <button id="start-btn" class="primary-btn">Comenzar</button>
-            <button id="start-btn" class="primary-btn" data-es="Comenzar" data-en="Start"></button>
-        </section>
-
-        <!-- Barra de progreso -->
-        <div id="progress-container" class="progress-container hidden">
-            <div class="progress-bar">
-                <div class="progress" id="progress-bar"></div>
-            </div>
-            <div class="steps-text">
-                <span id="current-step">1</span>/<span id="total-steps">9</span>
-            </div>
-        </div>
-
-        <!-- Paso 1: Temperatura de la Piel -->
-        <section id="paso-1" class="step hidden">
-            <h2 data-es="¿Cómo es tu piel?" data-en="How is your skin tone?"></h2>
-            <div class="options-container">
-                <div class="option-card" data-value="3" data-category="temperatura" data-feature="piel" data-type="calida">
-                    <img src="images/piel-calida.jpg" alt="Piel cálida">
-                    <h3 data-es="Cálida" data-en="Warm"></h3>
-                    <p data-es="Piel con subtono amarillo/dorado" data-en="Skin with yellow/golden undertone"></p>
-                </div>
-                <div class="option-card" data-value="2" data-category="temperatura" data-feature="piel" data-type="neutra">
-                    <img src="images/piel-neutra.jpg" alt="Piel neutra">
-                    <h3 data-es="Neutra" data-en="Neutral"></h3>
-                    <p data-es="Piel con subtono equilibrado" data-en="Skin with balanced undertone"></p>
-                </div>
-                <div class="option-card" data-value="1" data-category="temperatura" data-feature="piel" data-type="fria">
-                    <img src="images/piel-fria.jpg" alt="Piel fría">
-                    <h3 data-es="Fría" data-en="Cool"></h3>
-                    <p data-es="Piel con subtono rosado/azulado" data-en="Skin with pink/blue undertone"></p>
-                </div>
-            </div>
-            <div class="nav-buttons">
-                <button class="secondary-btn back-btn" data-es="Atrás" data-en="Back"></button>
-                <button class="primary-btn next-btn" data-es="Siguiente" data-en="Next"></button>
-            </div>
-        </section>
-
-        <!-- Paso 2: Temperatura del Cabello -->
-        <section id="paso-2" class="step hidden">
-            <h2 data-es="¿Cómo es tu cabello?" data-en="How is your hair?"></h2>
-            <p class="tip" data-es="Por favor piensa antes de calificar: 1. ¿De qué color era tu pelo natural? 2. ¿Te vas a dejar el color que tienes ahora? Y, 3. ¿Te favorece el color que llevas ahora en el pelo?" data-en="Please think before rating: 1. What color was your natural hair? 2. Will you keep your current hair color? And, 3. Does your current hair color flatter you?"></p>
-            <div class="options-container">
-                <div class="option-card" data-value="2" data-category="temperatura" data-feature="cabello" data-type="calido">
-                    <img src="images/cabello-calido.jpg" alt="Cabello cálido">
-                    <h3 data-es="Cálido" data-en="Warm"></h3>
-                    <p data-es="Tonos dorados, cobrizos, rojizos" data-en="Golden, copper, reddish tones"></p>
-                </div>
-                <div class="option-card" data-value="1" data-category="temperatura" data-feature="cabello" data-type="neutro">
-                    <img src="images/cabello-neutro.jpg" alt="Cabello neutro">
-                    <h3 data-es="Neutro" data-en="Neutral"></h3>
-                    <p data-es="Tonos intermedios" data-en="Intermediate tones"></p>
-                </div>
-                <div class="option-card" data-value="0" data-category="temperatura" data-feature="cabello" data-type="frio">
-                    <img src="images/cabello-frio.jpg" alt="Cabello frío">
-                    <h3 data-es="Frío" data-en="Cool"></h3>
-                    <p data-es="Tonos ceniza, platinados" data-en="Ash, platinum tones"></p>
-                </div>
-            </div>
-            <div class="nav-buttons">
-                <button class="secondary-btn back-btn" data-es="Atrás" data-en="Back"></button>
-                <button class="primary-btn next-btn" data-es="Siguiente" data-en="Next"></button>
-            </div>
-        </section>
-
-        <!-- Paso 3: Temperatura de los Ojos -->
-        <section id="paso-3" class="step hidden">
-            <h2 data-es="¿Cómo son tus ojos?" data-en="How are your eyes?"></h2>
-            <div class="options-container">
-                <div class="option-card" data-value="1" data-category="temperatura" data-feature="ojos" data-type="calidos">
-                    <img src="images/ojos-calidos.jpg" alt="Ojos cálidos">
-                    <h3 data-es="Cálidos" data-en="Warm"></h3>
-                    <p data-es="Con destellos dorados/ámbar" data-en="With golden/amber highlights"></p>
-                </div>
-                <div class="option-card" data-value="0.5" data-category="temperatura" data-feature="ojos" data-type="neutros">
-                    <img src="images/ojos-neutros.jpg" alt="Ojos neutros">
-                    <h3 data-es="Neutros" data-en="Neutral"></h3>
-                    <p data-es="Tonos equilibrados" data-en="Balanced tones"></p>
-                </div>
-                <div class="option-card" data-value="0" data-category="temperatura" data-feature="ojos" data-type="frios">
-                    <img src="images/ojos-frios.jpg" alt="Ojos fríos">
-                    <h3 data-es="Fríos" data-en="Cool"></h3>
-                    <p data-es="Con destellos grises/azulados" data-en="With gray/blue highlights"></p>
-                </div>
-            </div>
-            <div class="nav-buttons">
-                <button class="secondary-btn back-btn" data-es="Atrás" data-en="Back"></button>
-                <button class="primary-btn next-btn" data-es="Siguiente" data-en="Next"></button>
-            </div>
-        </section>
-
-        <!-- Paso 4: Valor de la Piel -->
-        <section id="paso-4" class="step hidden">
-            <h2 data-es="¿Cuál es el valor de tu piel?" data-en="What is the value of your skin?"></h2>
-            <p class="tip" data-es="El valor se refiere al nivel de claridad u oscuridad" data-en="Value refers to the level of lightness or darkness"></p>
-            <div class="options-container">
-                <div class="option-card" data-value="3" data-category="valor" data-feature="piel" data-type="clara">
-                    <img src="images/piel-clara.jpg" alt="Piel clara">
-                    <h3 data-es="Clara" data-en="Light"></h3>
-                    <p data-es="Tono de piel muy claro" data-en="Very light skin tone"></p>
-                </div>
-                <div class="option-card" data-value="2" data-category="valor" data-feature="piel" data-type="media">
-                    <img src="images/piel-media.jpg" alt="Piel media">
-                    <h3 data-es="Media" data-en="Medium"></h3>
-                    <p data-es="Tono de piel intermedio" data-en="Medium skin tone"></p>
-                </div>
-                <div class="option-card" data-value="1" data-category="valor" data-feature="piel" data-type="oscura">
-                    <img src="images/piel-oscura.jpg" alt="Piel oscura">
-                    <h3 data-es="Oscura" data-en="Dark"></h3>
-                    <p data-es="Tono de piel más oscuro" data-en="Darker skin tone"></p>
-                </div>
-            </div>
-            <div class="nav-buttons">
-                <button class="secondary-btn back-btn" data-es="Atrás" data-en="Back"></button>
-                <button class="primary-btn next-btn" data-es="Siguiente" data-en="Next"></button>
-            </div>
-        </section>
-
-        <!-- Paso 5: Valor del Cabello -->
-        <section id="paso-5" class="step hidden">
-            <h2 data-es="¿Cuál es el valor de tu cabello?" data-en="What is the value of your hair?"></h2>
-            <div class="options-container">
-                <div class="option-card" data-value="2" data-category="valor" data-feature="cabello" data-type="claro">
-                    <img src="images/cabello-claro.jpg" alt="Cabello claro">
-                    <h3 data-es="Claro" data-en="Light"></h3>
-                    <p data-es="Rubio, castaño claro" data-en="Blonde, light brown"></p>
-                </div>
-                <div class="option-card" data-value="1" data-category="valor" data-feature="cabello" data-type="medio">
-                    <img src="images/cabello-medio.jpg" alt="Cabello medio">
-                    <h3 data-es="Medio" data-en="Medium"></h3>
-                    <p data-es="Castaño medio" data-en="Medium brown"></p>
-                </div>
-                <div class="option-card" data-value="0" data-category="valor" data-feature="cabello" data-type="oscuro">
-                    <img src="images/cabello-oscuro.jpg" alt="Cabello oscuro">
-                    <h3 data-es="Oscuro" data-en="Dark"></h3>
-                    <p data-es="Castaño oscuro, negro" data-en="Dark brown, black"></p>
-                </div>
-            </div>
-            <div class="nav-buttons">
-                <button class="secondary-btn back-btn" data-es="Atrás" data-en="Back"></button>
-                <button class="primary-btn next-btn" data-es="Siguiente" data-en="Next"></button>
-            </div>
-        </section>
-
-        <!-- Paso 6: Valor de los Ojos -->
-        <section id="paso-6" class="step hidden">
-            <h2 data-es="¿Cuál es el valor de tus ojos?" data-en="What is the value of your eyes?"></h2>
-            <div class="options-container">
-                <div class="option-card" data-value="1" data-category="valor" data-feature="ojos" data-type="claros">
-                    <img src="images/ojos-claros.jpg" alt="Ojos claros">
-                    <h3 data-es="Claros" data-en="Light"></h3>
-                    <p data-es="Azul claro, verde claro, ámbar" data-en="Light blue, light green, amber"></p>
-                </div>
-                <div class="option-card" data-value="0.5" data-category="valor" data-feature="ojos" data-type="medios">
-                    <img src="images/ojos-medios.jpg" alt="Ojos medios">
-                    <h3 data-es="Medios" data-en="Medium"></h3>
-                    <p data-es="Verde, avellana" data-en="Green, hazel"></p>
-                </div>
-                <div class="option-card" data-value="0" data-category="valor" data-feature="ojos" data-type="oscuros">
-                    <img src="images/ojos-oscuros.jpg" alt="Ojos oscuros">
-                    <h3 data-es="Oscuros" data-en="Dark"></h3>
-                    <p data-es="Marrón oscuro, negro" data-en="Dark brown, black"></p>
-                </div>
-            </div>
-            <div class="nav-buttons">
-                <button class="secondary-btn back-btn" data-es="Atrás" data-en="Back"></button>
-                <button class="primary-btn next-btn" data-es="Siguiente" data-en="Next"></button>
-            </div>
-        </section>
-
-        <!-- Paso 7: Croma de la Piel -->
-        <section id="paso-7" class="step hidden">
-            <h2 data-es="¿Cuál es el croma de tu piel?" data-en="What is the chroma of your skin?"></h2>
-            <p class="tip" data-es="El croma se refiere a la intensidad o pureza del color" data-en="Chroma refers to the intensity or purity of color"></p>
-            <div class="options-container">
-                <div class="option-card" data-value="3" data-category="croma" data-feature="piel" data-type="brillante">
-                    <img src="images/piel-brillante.jpg" alt="Piel brillante">
-                    <h3 data-es="Brillante" data-en="Bright"></h3>
-                    <p data-es="Color de piel vibrante, claro y definido" data-en="Vibrant, clear and defined skin color"></p>
-                </div>
-                <div class="option-card" data-value="2" data-category="croma" data-feature="piel" data-type="media">
-                    <img src="images/piel-croma-media.jpg" alt="Piel de croma medio">
-                    <h3 data-es="Media" data-en="Medium"></h3>
-                    <p data-es="Color de piel moderado" data-en="Moderate skin color"></p>
-                </div>
-                <div class="option-card" data-value="1" data-category="croma" data-feature="piel" data-type="suave">
-                    <img src="images/piel-suave.jpg" alt="Piel suave">
-                    <h3 data-es="Suave" data-en="Soft"></h3>
-                    <p data-es="Color de piel apagado, grisáceo" data-en="Muted, grayish skin color"></p>
-                </div>
-            </div>
-            <div class="nav-buttons">
-                <button class="secondary-btn back-btn" data-es="Atrás" data-en="Back"></button>
-                <button class="primary-btn next-btn" data-es="Siguiente" data-en="Next"></button>
-            </div>
-        </section>
-
-        <!-- Paso 8: Croma del Cabello -->
-        <section id="paso-8" class="step hidden">
-            <h2 data-es="¿Cuál es el croma de tu cabello?" data-en="What is the chroma of your hair?"></h2>
-            <div class="options-container">
-                <div class="option-card" data-value="2" data-category="croma" data-feature="cabello" data-type="brillante">
-                    <img src="images/cabello-brillante.jpg" alt="Cabello brillante">
-                    <h3 data-es="Brillante" data-en="Bright"></h3>
-                    <p data-es="Color intenso y vibrante" data-en="Intense and vibrant color"></p>
-                </div>
-                <div class="option-card" data-value="1" data-category="croma" data-feature="cabello" data-type="medio">
-                    <img src="images/cabello-croma-medio.jpg" alt="Cabello de croma medio">
-                    <h3 data-es="Medio" data-en="Medium"></h3>
-                    <p data-es="Color moderado" data-en="Moderate color"></p>
-                </div>
-                <div class="option-card" data-value="0" data-category="croma" data-feature="cabello" data-type="suave">
-                    <img src="images/cabello-suave.jpg" alt="Cabello suave">
-                    <h3 data-es="Suave" data-en="Soft"></h3>
-                    <p data-es="Color apagado, mezclado" data-en="Muted, mixed color"></p>
-                </div>
-            </div>
-            <div class="nav-buttons">
-                <button class="secondary-btn back-btn" data-es="Atrás" data-en="Back"></button>
-                <button class="primary-btn next-btn" data-es="Siguiente" data-en="Next"></button>
-            </div>
-        </section>
-
-        <!-- Paso 9: Croma de los Ojos -->
-        <section id="paso-9" class="step hidden">
-            <h2 data-es="¿Cuál es el croma de tus ojos?" data-en="What is the chroma of your eyes?"></h2>
-            <div class="options-container">
-                <div class="option-card" data-value="1" data-category="croma" data-feature="ojos" data-type="brillante">
-                    <img src="images/ojos-brillantes.jpg" alt="Ojos brillantes">
-                    <h3 data-es="Brillante" data-en="Bright"></h3>
-                    <p data-es="Color intenso y definido" data-en="Intense and defined color"></p>
-                </div>
-                <div class="option-card" data-value="0.5" data-category="croma" data-feature="ojos" data-type="medio">
-                    <img src="images/ojos-croma-medio.jpg" alt="Ojos de croma medio">
-                    <h3 data-es="Medio" data-en="Medium"></h3>
-                    <p data-es="Color moderado" data-en="Moderate color"></p>
-                </div>
-                <div class="option-card" data-value="0" data-category="croma" data-feature="ojos" data-type="suave">
-                    <img src="images/ojos-suaves.jpg" alt="Ojos suaves">
-                    <h3 data-es="Suave" data-en="Soft"></h3>
-                    <p data-es="Color suavizado, mezclado" data-en="Softened, mixed color"></p>
-                </div>
-            </div>
-            <div class="nav-buttons">
-                <button class="secondary-btn back-btn" data-es="Atrás" data-en="Back"></button>
-                <button class="primary-btn calculate-btn" data-es="Calcular resultado" data-en="Calculate result"></button>
-            </div>
-        </section>
-
-        <!-- Loader -->
-        <section id="loader" class="step hidden">
-            <div class="loader-container">
-                <div class="loader"></div>
-                <p data-es="Calculando tu estación colorimétrica..." data-en="Calculating your colorimetric season..."></p>
-            </div>
-        </section>
-
-        <!-- Resultado -->
-        <section id="resultado" class="step hidden">
-            <h1 class="brittany-font" id="season-title"></h1>
-            <div class="result-container">
-                <img id="season-palette" src="" alt="Paleta de colores">
-                <div class="result-details">
-                    <h2 data-es="Tu estación es:" data-en="Your season is:"></h2>
-                    <h3 id="season-name"></h3>
-                    <p id="season-description"></p>
-                    <h3 data-es="Consejos de estilo" data-en="Style tips"></h3>
-                    <ul id="style-tips"></ul>
-                </div>
-            </div>
-            <div class="result-actions">
-                <button id="download-btn" class="primary-btn" data-es="Descargar PDF" data-en="Download PDF"></button>
-                <button id="restart-btn" class="secondary-btn" data-es="Volver a empezar" data-en="Start again"></button>
-            </div>
-        </section>
-    </div>
-
-    <script src="script.js"></script>
-        
-        <!-- Sección Calculadora -->
-<section class="calculator">
-  <!-- Aquí dentro van los pasos de la calculadora, como por ejemplo: -->
-  <div class="question-container">
-    <h2 class="question-title">Temperatura de la piel</h2>
-    <p class="question-description">¿Tu piel tiene un subtono más cálido o frío?</p>
-    <div class="radio-group">
-      <div class="radio-option">
-        <input type="radio" id="piel-calida" name="piel-temperatura" value="1">
-        <label for="piel-calida">Cálida</label>
-      </div>
-      <div class="radio-option">
-        <input type="radio" id="piel-fria" name="piel-temperatura" value="3">
-        <label for="piel-fria">Fría</label>
-      </div>
-    </div>
+<body>
+  <!-- Selector de idioma -->
+  <div class="language-selector">
+    <button id="es-btn" class="active">ES</button>
+    <button id="en-btn">EN</button>
   </div>
 
-  <!-- Aquí irían más pasos... -->
+  <div class="container">
+    <!-- Página de inicio -->
+    <section id="inicio" class="step active">
+      <div class="home-banner">
+        <div class="banner-content">
+          <h1 class="brittany-font" data-es="Calculadora de Colorimetría" data-en="Colorimetry Calculator">Calculadora de Colorimetría</h1>
+          <p class="subtitle" data-es="Descubre tu paleta de colores ideal" data-en="Discover your ideal color palette"></p>
+          <p class="description" data-es="Esta herramienta te ayudará a identificar tu estación colorimétrica y te ofrecerá consejos personalizados para mejorar tu imagen personal." data-en="This tool will help you identify your color season and offer personalized style advice."></p>
+          <button id="start-btn" class="start-button" data-es="Iniciar tu Análisis de Color" data-en="Start Your Color Analysis">Iniciar tu Análisis de Color</button>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <!-- Barra de progreso -->
+    <div id="progress-container" class="progress-container hidden">
+      <div class="progress-bar">
+        <div class="progress" id="progress-bar"></div>
+      </div>
+      <div class="steps-text">
+        <span id="current-step">1</span>/<span id="total-steps">9</span>
+      </div>
+    </div>
+
+    <!-- Aquí comienzan los pasos de la calculadora -->
+    <section id="paso-1" class="calculator hidden">
+      <!-- Paso 1: Temperatura de la piel (ejemplo) -->
+      <div class="question-container">
+        <h2 class="question-title" data-es="¿Cuál es la temperatura de tu piel?" data-en="What is your skin temperature?">¿Cuál es la temperatura de tu piel?</h2>
+        <p class="question-description" data-es="Observa si tu piel tiene un subtono cálido (amarillo, dorado) o frío (rosado, azulado)." data-en="Check if your skin has a warm (yellow/golden) or cool (pink/bluish) undertone."></p>
+        <!-- Opciones de ejemplo -->
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" id="piel1" name="temperatura-piel" value="1">
+            <label for="piel1">Fría</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="piel2" name="temperatura-piel" value="2">
+            <label for="piel2">Neutra</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="piel3" name="temperatura-piel" value="3">
+            <label for="piel3">Cálida</label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Aquí irán los pasos siguientes hasta mostrar resultados (recomendado completarlo luego) -->
+
+    <!-- Resultado final (oculto inicialmente) -->
+    <section id="resultado" class="results-container hidden">
+      <h2 class="result-title" id="resultado-estacion">Tu estación es: Verano Claro</h2>
+      <div class="result-image">
+        <img src="images/verano-claro.jpg" alt="Paleta Verano Claro" />
+      </div>
+      <p class="result-description">
+        Esta estación corresponde a tonos suaves y claros. Te recomendamos colores pastel, rosa suave, lavanda, azul cielo y gris perla.
+      </p>
+      <button class="restart-button" id="restart-btn">Reiniciar</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
