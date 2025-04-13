@@ -1066,3 +1066,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar el botón de descarga PDF
     document.getElementById('download-btn').addEventListener('click', generatePDF);
 });
+// Mostrar la calculadora cuando el usuario hace clic en el botón de inicio
+document.getElementById('start-btn').addEventListener('click', () => {
+    document.getElementById('inicio').classList.remove('active');
+    document.querySelector('.calculator').style.display = 'block';
+    document.getElementById('progress-container').classList.remove('hidden');
+});
