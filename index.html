@@ -39,27 +39,38 @@
 
     <!-- Aquí comienzan los pasos de la calculadora -->
     <section id="paso-1" class="calculator hidden">
-      <!-- Paso 1: Temperatura de la piel (ejemplo) -->
-      <div class="question-container">
-        <h2 class="question-title" data-es="¿Cuál es la temperatura de tu piel?" data-en="What is your skin temperature?">¿Cuál es la temperatura de tu piel?</h2>
-        <p class="question-description" data-es="Observa si tu piel tiene un subtono cálido (amarillo, dorado) o frío (rosado, azulado)." data-en="Check if your skin has a warm (yellow/golden) or cool (pink/bluish) undertone."></p>
-        <!-- Opciones de ejemplo -->
-        <div class="radio-group">
-          <div class="radio-option">
-            <input type="radio" id="piel1" name="temperatura-piel" value="1">
-            <label for="piel1">Fría</label>
-          </div>
-          <div class="radio-option">
-            <input type="radio" id="piel2" name="temperatura-piel" value="2">
-            <label for="piel2">Neutra</label>
-          </div>
-          <div class="radio-option">
-            <input type="radio" id="piel3" name="temperatura-piel" value="3">
-            <label for="piel3">Cálida</label>
-          </div>
-        </div>
-      </div>
-    </section>
+      <!-- Paso 1: Temperatura de la Piel -->
+<section id="paso1" class="step hidden">
+  <div class="step-content">
+    <h2 data-es="Temperatura de la piel" data-en="Skin Temperature">Temperatura de la piel</h2>
+    <p data-es="¿Tu piel tiene un matiz más cálido (amarillo/dorado), neutro o frío (rosado/azulado)?" 
+       data-en="Does your skin have a warmer (yellow/golden), neutral or cooler (pink/bluish) undertone?">
+       ¿Tu piel tiene un matiz más cálido, neutro o frío?
+    </p>
+
+    <div class="option-images">
+      <label class="option-image">
+        <input type="radio" name="piel-temperatura" value="1">
+        <img src="images/piel-fria.jpg" alt="Piel fría">
+        <div class="caption" data-es="Fría" data-en="Cool">Fría</div>
+      </label>
+      <label class="option-image">
+        <input type="radio" name="piel-temperatura" value="2">
+        <img src="images/piel-neutra.jpg" alt="Piel neutra">
+        <div class="caption" data-es="Neutra" data-en="Neutral">Neutra</div>
+      </label>
+      <label class="option-image">
+        <input type="radio" name="piel-temperatura" value="3">
+        <img src="images/piel-calida.jpg" alt="Piel cálida">
+        <div class="caption" data-es="Cálida" data-en="Warm">Cálida</div>
+      </label>
+    </div>
+
+    <div class="navigation-buttons">
+      <button class="next-button" onclick="mostrarPaso(2)" data-es="Siguiente" data-en="Next">Siguiente</button>
+    </div>
+  </div>
+</section>
 
     <!-- Aquí irán los pasos siguientes hasta mostrar resultados (recomendado completarlo luego) -->
 
