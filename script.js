@@ -1072,3 +1072,31 @@ document.getElementById('start-btn').addEventListener('click', () => {
     document.querySelector('.calculator').style.display = 'block';
     document.getElementById('progress-container').classList.remove('hidden');
 });
+
+// Funcionalidad para cambiar el idioma
+document.getElementById('es-btn').addEventListener('click', () => {
+  cambiarIdioma('es');
+});
+
+document.getElementById('en-btn').addEventListener('click', () => {
+  cambiarIdioma('en');
+});
+
+function cambiarIdioma(idioma) {
+  document.querySelectorAll('[data-es], [data-en]').forEach((el) => {
+    el.textContent = el.getAttribute(`data-${idioma}`);
+  });
+
+  // Guardar preferencia
+  localStorage.setItem('idioma', idioma);
+
+  // Estilos del botón activo
+  document.getElementById('es-btn').classList.toggle('active', idioma === 'es');
+  document.getElementById('en-btn').classList.toggle('active', idioma === 'en');
+}
+
+// Cargar preferencia guardada al inicio
+document.addEventListener('DOMContentLoaded', () => {
+  const idiomaGuardado = localStorage.getItem('idioma') || 'es';
+  cambiarIdioma(idiomaGuardado);
+});
